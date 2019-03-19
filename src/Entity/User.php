@@ -21,6 +21,32 @@ class User
      */
     private $username;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Seller", inversedBy="user")
+     */
+    private $seller;
+
+    public function __toString()
+    {
+        return (string)$this->getUsername();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * @param mixed $seller
+     */
+    public function setSeller($seller): void
+    {
+        $this->seller = $seller;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
