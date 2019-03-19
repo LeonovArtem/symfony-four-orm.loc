@@ -27,6 +27,32 @@ class Product
     private $seller;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="products")
+     */
+    private $categories;
+
+    public function __toString()
+    {
+        return (string)$this->getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    /**
      * @return mixed
      */
     public function getSeller()
