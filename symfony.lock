@@ -80,6 +80,9 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
+    "facebook/webdriver": {
+        "version": "1.6.0"
+    },
     "fig/link-util": {
         "version": "1.0.0"
     },
@@ -160,6 +163,12 @@
     },
     "sonata-project/datagrid-bundle": {
         "version": "2.3.1"
+    },
+    "sonata-project/doctrine-extensions": {
+        "version": "1.2.0"
+    },
+    "sonata-project/doctrine-orm-admin-bundle": {
+        "version": "3.8.3"
     },
     "sonata-project/exporter": {
         "version": "1.9.1"
@@ -290,6 +299,9 @@
     "symfony/orm-pack": {
         "version": "v1.0.5"
     },
+    "symfony/panther": {
+        "version": "v0.3.0"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.1",
         "recipe": {
@@ -301,6 +313,9 @@
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.9.0"
+    },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.10.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.9.0"
