@@ -26,6 +26,7 @@ final class ProductAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('name')
+            ->add('seller')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -38,8 +39,8 @@ final class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('id')
             ->add('name')
+            ->add('seller')
             ;
     }
 

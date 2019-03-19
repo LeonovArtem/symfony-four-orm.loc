@@ -21,6 +21,27 @@ class Product
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Seller", inversedBy="products")
+     */
+    private $seller;
+
+    /**
+     * @return mixed
+     */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * @param mixed $seller
+     */
+    public function setSeller($seller): void
+    {
+        $this->seller = $seller;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

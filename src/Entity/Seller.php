@@ -31,9 +31,30 @@ class Seller
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="seller")
+     */
+    private $products;
+
     public function __toString()
     {
         return (string)$this->getCompany();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param mixed $products
+     */
+    public function setProducts($products): void
+    {
+        $this->products = $products;
     }
 
     /**
