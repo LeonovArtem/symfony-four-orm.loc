@@ -57,3 +57,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Category }
         public: true
+
+    admin.trigger_campaign:
+        class: App\Admin\TriggerCampaignAdmin
+        arguments: [~, App\Entity\TriggerCampaign, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: TriggerCampaign }
+        public: true

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,16 @@ class Product
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="products")
      */
     private $categories;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TriggerCampaign", mappedBy="product")
+     */
+    private $triggerCampaigns;
+
+    public function __construct()
+    {
+        $this->triggerCampaigns = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -81,6 +93,37 @@ class Product
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TriggerCampaign[]
+     */
+    public function getTriggerCampaigns(): Collection
+    {
+        return $this->triggerCampaigns;
+    }
+
+    public function addTriggerCampaign(TriggerCampaign $triggerCampaign): self
+    {
+        if (!$this->triggerCampaigns->contains($triggerCampaign)) {
+            $this->triggerCampaigns[] = $triggerCampaign;
+            $triggerCampaign->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTriggerCampaign(TriggerCampaign $triggerCampaign): self
+    {
+        if ($this->triggerCampaigns->contains($triggerCampaign)) {
+            $this->triggerCampaigns->removeElement($triggerCampaign);
+            // set the owning side to null (unless already changed)
+            if ($triggerCampaign->getProduct() === $this) {
+                $triggerCampaign->setProduct(null);
+            }
+        }
 
         return $this;
     }
